@@ -1,0 +1,229 @@
+Seleccionem la variable objectiu i mirarem les dimensionalitats de les nostres dades
+
+Eliminem la classe Category
+Dimensionalitat de la BBDD: (39089, 56)
+Dimensionalitat de les entrades X (39089, 56)
+Dimensionalitat de l'atribut Y (39089,)
+
+Posteriorment mirarem el tipus de dades que tenim
+pslist.nproc                                int64
+pslist.nppid                                int64
+pslist.avg_threads                        float64
+pslist.nprocs64bit                          int64
+pslist.avg_handlers                       float64
+dlllist.ndlls                               int64
+dlllist.avg_dlls_per_proc                 float64
+handles.nhandles                            int64
+handles.avg_handles_per_proc              float64
+handles.nport                               int64
+handles.nfile                               int64
+handles.nevent                              int64
+handles.ndesktop                            int64
+handles.nkey                                int64
+handles.nthread                             int64
+handles.ndirectory                          int64
+handles.nsemaphore                          int64
+handles.ntimer                              int64
+handles.nsection                            int64
+handles.nmutant                             int64
+ldrmodules.not_in_load                      int64
+ldrmodules.not_in_init                      int64
+ldrmodules.not_in_mem                       int64
+ldrmodules.not_in_load_avg                float64
+ldrmodules.not_in_init_avg                float64
+ldrmodules.not_in_mem_avg                 float64
+malfind.ninjections                         int64
+malfind.commitCharge                        int64
+malfind.protection                          int64
+malfind.uniqueInjections                  float64
+psxview.not_in_pslist                       int64
+psxview.not_in_eprocess_pool                int64
+psxview.not_in_ethread_pool                 int64
+psxview.not_in_pspcid_list                  int64
+psxview.not_in_csrss_handles                int64
+psxview.not_in_session                      int64
+psxview.not_in_deskthrd                     int64
+psxview.not_in_pslist_false_avg           float64
+psxview.not_in_eprocess_pool_false_avg    float64
+psxview.not_in_ethread_pool_false_avg     float64
+psxview.not_in_pspcid_list_false_avg      float64
+psxview.not_in_csrss_handles_false_avg    float64
+psxview.not_in_session_false_avg          float64
+psxview.not_in_deskthrd_false_avg         float64
+modules.nmodules                            int64
+svcscan.nservices                           int64
+svcscan.kernel_drivers                      int64
+svcscan.fs_drivers                          int64
+svcscan.process_services                    int64
+svcscan.shared_process_services             int64
+svcscan.interactive_process_services        int64
+svcscan.nactive                             int64
+callbacks.ncallbacks                        int64
+callbacks.nanonymous                        int64
+callbacks.ngeneric                          int64
+Class                                       int64
+dtype: object
+
+Observem nombre valors diferents per cada columna
+Nombre valors diferents de l'atribut pslist.nproc:93
+Nombre valors diferents de l'atribut pslist.nppid:20
+Nombre valors diferents de l'atribut pslist.avg_threads:27298
+Nombre valors diferents de l'atribut pslist.nprocs64bit:1
+Nombre valors diferents de l'atribut pslist.avg_handlers:32872
+Nombre valors diferents de l'atribut dlllist.ndlls:1758
+Nombre valors diferents de l'atribut dlllist.avg_dlls_per_proc:15385
+Nombre valors diferents de l'atribut handles.nhandles:6585
+Nombre valors diferents de l'atribut handles.avg_handles_per_proc:32704
+Nombre valors diferents de l'atribut handles.nport:1
+Nombre valors diferents de l'atribut handles.nfile:1060
+Nombre valors diferents de l'atribut handles.nevent:3128
+Nombre valors diferents de l'atribut handles.ndesktop:54
+Nombre valors diferents de l'atribut handles.nkey:981
+Nombre valors diferents de l'atribut handles.nthread:1120
+Nombre valors diferents de l'atribut handles.ndirectory:97
+Nombre valors diferents de l'atribut handles.nsemaphore:617
+Nombre valors diferents de l'atribut handles.ntimer:104
+Nombre valors diferents de l'atribut handles.nsection:601
+Nombre valors diferents de l'atribut handles.nmutant:404
+Nombre valors diferents de l'atribut ldrmodules.not_in_load:145
+Nombre valors diferents de l'atribut ldrmodules.not_in_init:173
+Nombre valors diferents de l'atribut ldrmodules.not_in_mem:145
+Nombre valors diferents de l'atribut ldrmodules.not_in_load_avg:16874
+Nombre valors diferents de l'atribut ldrmodules.not_in_init_avg:16947
+Nombre valors diferents de l'atribut ldrmodules.not_in_mem_avg:16879
+Nombre valors diferents de l'atribut malfind.ninjections:88
+Nombre valors diferents de l'atribut malfind.commitCharge:311
+Nombre valors diferents de l'atribut malfind.protection:183
+Nombre valors diferents de l'atribut malfind.uniqueInjections:5450
+Nombre valors diferents de l'atribut psxview.not_in_pslist:39
+Nombre valors diferents de l'atribut psxview.not_in_eprocess_pool:2
+Nombre valors diferents de l'atribut psxview.not_in_ethread_pool:74
+Nombre valors diferents de l'atribut psxview.not_in_pspcid_list:41
+Nombre valors diferents de l'atribut psxview.not_in_csrss_handles:74
+Nombre valors diferents de l'atribut psxview.not_in_session:39
+Nombre valors diferents de l'atribut psxview.not_in_deskthrd:75
+Nombre valors diferents de l'atribut psxview.not_in_pslist_false_avg:9534
+Nombre valors diferents de l'atribut psxview.not_in_eprocess_pool_false_avg:185
+Nombre valors diferents de l'atribut psxview.not_in_ethread_pool_false_avg:10239
+Nombre valors diferents de l'atribut psxview.not_in_pspcid_list_false_avg:9537
+Nombre valors diferents de l'atribut psxview.not_in_csrss_handles_false_avg:11632
+Nombre valors diferents de l'atribut psxview.not_in_session_false_avg:11760
+Nombre valors diferents de l'atribut psxview.not_in_deskthrd_false_avg:11871
+Nombre valors diferents de l'atribut modules.nmodules:2
+Nombre valors diferents de l'atribut svcscan.nservices:28
+Nombre valors diferents de l'atribut svcscan.kernel_drivers:17
+Nombre valors diferents de l'atribut svcscan.fs_drivers:7
+Nombre valors diferents de l'atribut svcscan.process_services:14
+Nombre valors diferents de l'atribut svcscan.shared_process_services:20
+Nombre valors diferents de l'atribut svcscan.interactive_process_services:1
+Nombre valors diferents de l'atribut svcscan.nactive:31
+Nombre valors diferents de l'atribut callbacks.ncallbacks:12
+Nombre valors diferents de l'atribut callbacks.nanonymous:2
+Nombre valors diferents de l'atribut callbacks.ngeneric:2
+Nombre valors diferents de l'atribut Class:2
+
+
+Aixó com també observarem el nombre de dades nules que tenim
+pslist.nproc                              0
+pslist.nppid                              0
+pslist.avg_threads                        0
+pslist.nprocs64bit                        0
+pslist.avg_handlers                       0
+dlllist.ndlls                             0
+dlllist.avg_dlls_per_proc                 0
+handles.nhandles                          0
+handles.avg_handles_per_proc              0
+handles.nport                             0
+handles.nfile                             0
+handles.nevent                            0
+handles.ndesktop                          0
+handles.nkey                              0
+handles.nthread                           0
+handles.ndirectory                        0
+handles.nsemaphore                        0
+handles.ntimer                            0
+handles.nsection                          0
+handles.nmutant                           0
+ldrmodules.not_in_load                    0
+ldrmodules.not_in_init                    0
+ldrmodules.not_in_mem                     0
+ldrmodules.not_in_load_avg                0
+ldrmodules.not_in_init_avg                0
+ldrmodules.not_in_mem_avg                 0
+malfind.ninjections                       0
+malfind.commitCharge                      0
+malfind.protection                        0
+malfind.uniqueInjections                  0
+psxview.not_in_pslist                     0
+psxview.not_in_eprocess_pool              0
+psxview.not_in_ethread_pool               0
+psxview.not_in_pspcid_list                0
+psxview.not_in_csrss_handles              0
+psxview.not_in_session                    0
+psxview.not_in_deskthrd                   0
+psxview.not_in_pslist_false_avg           0
+psxview.not_in_eprocess_pool_false_avg    0
+psxview.not_in_ethread_pool_false_avg     0
+psxview.not_in_pspcid_list_false_avg      0
+psxview.not_in_csrss_handles_false_avg    0
+psxview.not_in_session_false_avg          0
+psxview.not_in_deskthrd_false_avg         0
+modules.nmodules                          0
+svcscan.nservices                         0
+svcscan.kernel_drivers                    0
+svcscan.fs_drivers                        0
+svcscan.process_services                  0
+svcscan.shared_process_services           0
+svcscan.interactive_process_services      0
+svcscan.nactive                           0
+callbacks.ncallbacks                      0
+callbacks.nanonymous                      0
+callbacks.ngeneric                        0
+Class                                     0
+dtype: int64
+
+Eliminem les classes que no aporten informació:
+Dimensionalitat de la BBDD: (39089, 53)
+
+
+SVM rbf gamma 0.7  dades (6.000000):  accuracy: 0.999388 (0.000590),  f1: 0.999386, recall: 0.999386, roc: 0.999996 tiempo 4.077535
+SVM sigmoide gamma 0.7  dades (6.000000):  accuracy: 0.500000 (0.000000),  f1: 0.642220, recall: 0.749520, roc: 0.981471 tiempo 324.733709
+SVM precomputed gamma 0.7  dades (6.000000):  accuracy: nan (nan),  f1: nan, recall: nan, roc: nan tiempo 0.021134
+SVM polinomi gamma 0.7  dades (6.000000):  accuracy: 0.999740 (0.000401),  f1: 0.999821, recall: 0.999821, roc: 1.000000 tiempo 1.274427
+SVM linear gamma 0.7  dades (6.000000):  accuracy: 0.999115 (0.000637),  f1: 0.999233, recall: 0.999232, roc: 0.999934 tiempo 3.552940
+Logistic Regression  dades (6.000000):  accuracy: 0.998888 (0.000449),  f1: 0.999054, recall: 0.999053, roc: 0.999886 tiempo 0.672470
+Guassian Naive Bayes  dades (6.000000):  accuracy: 0.994570 (0.000801),  f1: 0.991908, recall: 0.991865, roc: 0.996961 tiempo 0.038219
+Linear Discriminant Analysis  dades (6.000000):  accuracy: 0.996502 (0.000307),  f1: 0.997748, recall: 0.997749, roc: 0.999065 tiempo 0.254084
+Decision Tree  dades (6.000000):  accuracy: 0.999829 (0.000210),  f1: 0.999847, recall: 0.999847, roc: 0.999829 tiempo 0.196771
+K Nearest Neigbors  dades (6.000000):  accuracy: 0.999780 (0.000199),  f1: 0.999821, recall: 0.999821, roc: 0.999932 tiempo 0.018961
+Extra Trees  dades (6.000000):  accuracy: 0.999983 (0.000038),  f1: 0.999974, recall: 0.999974, roc: 1.000000 tiempo 0.872992
+Random Forest  dades (6.000000):  accuracy: 0.999916 (0.000123),  f1: 0.999923, recall: 0.999923, roc: 0.999983 tiempo 1.257194
+HistGradientBoosting  dades (6.000000):  accuracy: 0.999914 (0.000111),  f1: 0.999923, recall: 0.999923, roc: 0.999999 tiempo 0.831351
+ADABoosting  dades (6.000000):  accuracy: 0.999932 (0.000113),  f1: 0.999949, recall: 0.999949, roc: 1.000000 tiempo 9.984848
+Bagging Classifier  dades (6.000000):  accuracy: 0.994558 (0.000939),  f1: 0.991884, recall: 0.991839, roc: 0.997858 tiempo 0.346426
+
+Perceptró  dades (6.000000):  accuracy: nan (nan),  f1: nan, recall: nan, roc: nan tiempo 0.081290
+GradientBoostingClassifier  dades (6.000000):  accuracy: 0.999913 (0.000113),  f1: 0.999923, recall: 0.999923, roc: 0.999965 tiempo 6.554315
+
+Dimensionalitat de la BBDD: (39089, 46)
+Dimensionalitat de les entrades X (39089, 45)
+Dimensionalitat de l'atribut Y (39089,)
+SVM rbf gamma 0.7  dades (6.000000):  accuracy: 0.999423 (0.000514),  f1: 0.999437, recall: 0.999437, roc: 0.999996 tiempo 3.753082
+SVM sigmoide gamma 0.7  dades (6.000000):  accuracy: 0.500000 (0.000000),  f1: 0.642215, recall: 0.749520, roc: 0.983163 tiempo 294.843629
+SVM precomputed gamma 0.7  dades (6.000000):  accuracy: nan (nan),  f1: nan, recall: nan, roc: nan tiempo 0.018430
+SVM polinomi gamma 0.7  dades (6.000000):  accuracy: 0.999899 (0.000117),  f1: 0.999898, recall: 0.999898, roc: 1.000000 tiempo 1.153886
+SVM linear gamma 0.7  dades (6.000000):  accuracy: 0.999204 (0.000549),  f1: 0.999258, recall: 0.999258, roc: 0.999937 tiempo 3.619085
+Logistic Regression  dades (6.000000):  accuracy: 0.999011 (0.000524),  f1: 0.999130, recall: 0.999130, roc: 0.999890 tiempo 0.601320
+Guassian Naive Bayes  dades (6.000000):  accuracy: 0.994590 (0.000484),  f1: 0.991933, recall: 0.991890, roc: 0.997218 tiempo 0.033016
+Linear Discriminant Analysis  dades (6.000000):  accuracy: 0.996625 (0.000988),  f1: 0.997850, recall: 0.997851, roc: 0.998933 tiempo 0.206177
+Decision Tree  dades (6.000000):  accuracy: 0.999897 (0.000187),  f1: 0.999898, recall: 0.999898, roc: 0.999897 tiempo 0.127582
+K Nearest Neigbors  dades (6.000000):  accuracy: 0.999795 (0.000250),  f1: 0.999846, recall: 0.999847, roc: 0.999931 tiempo 0.016015
+Extra Trees  dades (6.000000):  accuracy: 0.999931 (0.000113),  f1: 0.999949, recall: 0.999949, roc: 1.000000 tiempo 0.704671
+Random Forest  dades (6.000000):  accuracy: 0.999915 (0.000108),  f1: 0.999923, recall: 0.999923, roc: 0.999999 tiempo 1.088525
+HistGradientBoosting  dades (6.000000):  accuracy: 0.999949 (0.000114),  f1: 0.999923, recall: 0.999923, roc: 0.999965 tiempo 0.831309
+ADABoosting  dades (6.000000):  accuracy: 0.999931 (0.000115),  f1: 0.999949, recall: 0.999949, roc: 1.000000 tiempo 8.073277
+Bagging Classifier  dades (6.000000):  accuracy: 0.994553 (0.000881),  f1: 0.991883, recall: 0.991839, roc: 0.997390 tiempo 0.294376
+Perceptró  dades (6.000000):  accuracy: nan (nan),  f1: nan, recall: nan, roc: nan tiempo 0.081290
+GradientBoostingClassifier  dades (6.000000):  accuracy: 0.999847 (0.000153),  f1: 0.999872, recall: 0.999872, roc: 0.999966 tiempo 5.457921
+
+Process finished with exit code 0
