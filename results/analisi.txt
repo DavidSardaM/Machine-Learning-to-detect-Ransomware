@@ -185,45 +185,53 @@ dtype: int64
 Eliminem les classes que no aporten informació:
 Dimensionalitat de la BBDD: (39089, 53)
 
+Dimensionalitat de la BBDD: (39089, 53)
+Dimensionalitat de les entrades X (39089, 52)
+Dimensionalitat de l'atribut Y (39089,)
 
-SVM rbf gamma 0.7  dades (6.000000):  accuracy: 0.999388 (0.000590),  f1: 0.999386, recall: 0.999386, roc: 0.999996 tiempo 4.077535
-SVM sigmoide gamma 0.7  dades (6.000000):  accuracy: 0.500000 (0.000000),  f1: 0.642220, recall: 0.749520, roc: 0.981471 tiempo 324.733709
-SVM precomputed gamma 0.7  dades (6.000000):  accuracy: nan (nan),  f1: nan, recall: nan, roc: nan tiempo 0.021134
-SVM polinomi gamma 0.7  dades (6.000000):  accuracy: 0.999740 (0.000401),  f1: 0.999821, recall: 0.999821, roc: 1.000000 tiempo 1.274427
-SVM linear gamma 0.7  dades (6.000000):  accuracy: 0.999115 (0.000637),  f1: 0.999233, recall: 0.999232, roc: 0.999934 tiempo 3.552940
-Logistic Regression  dades (6.000000):  accuracy: 0.998888 (0.000449),  f1: 0.999054, recall: 0.999053, roc: 0.999886 tiempo 0.672470
-Guassian Naive Bayes  dades (6.000000):  accuracy: 0.994570 (0.000801),  f1: 0.991908, recall: 0.991865, roc: 0.996961 tiempo 0.038219
-Linear Discriminant Analysis  dades (6.000000):  accuracy: 0.996502 (0.000307),  f1: 0.997748, recall: 0.997749, roc: 0.999065 tiempo 0.254084
-Decision Tree  dades (6.000000):  accuracy: 0.999829 (0.000210),  f1: 0.999847, recall: 0.999847, roc: 0.999829 tiempo 0.196771
-K Nearest Neigbors  dades (6.000000):  accuracy: 0.999780 (0.000199),  f1: 0.999821, recall: 0.999821, roc: 0.999932 tiempo 0.018961
-Extra Trees  dades (6.000000):  accuracy: 0.999983 (0.000038),  f1: 0.999974, recall: 0.999974, roc: 1.000000 tiempo 0.872992
-Random Forest  dades (6.000000):  accuracy: 0.999916 (0.000123),  f1: 0.999923, recall: 0.999923, roc: 0.999983 tiempo 1.257194
-HistGradientBoosting  dades (6.000000):  accuracy: 0.999914 (0.000111),  f1: 0.999923, recall: 0.999923, roc: 0.999999 tiempo 0.831351
-ADABoosting  dades (6.000000):  accuracy: 0.999932 (0.000113),  f1: 0.999949, recall: 0.999949, roc: 1.000000 tiempo 9.984848
-Bagging Classifier  dades (6.000000):  accuracy: 0.994558 (0.000939),  f1: 0.991884, recall: 0.991839, roc: 0.997858 tiempo 0.346426
+SVM rbf gamma 0.7,  dades (6.000000):  accuracy: 0.999420 (0.000168),  f1: 0.999437, recall: 0.999437, roc: 0.999997, temps convergir algoritme 3.952055, i temps test: 0.129571
+SVM sigmoide gamma 0.7,  dades (6.000000):  accuracy: 0.500000 (0.000000),  f1: 0.642215, recall: 0.749520, roc: 0.981608, temps convergir algoritme 317.390107, i temps test: 11.033297
+SVM precomputed gamma 0.7,  dades (6.000000):  accuracy: nan (nan),  f1: nan, recall: nan, roc: nan, temps convergir algoritme 0.021458, i temps test: 0.000000
+SVM polinomi gamma 0.7,  dades (6.000000):  accuracy: 0.999949 (0.000078),  f1: 0.999923, recall: 0.999923, roc: 1.000000, temps convergir algoritme 1.234851, i temps test: 0.021345
+SVM linear gamma 0.7,  dades (6.000000):  accuracy: 0.999086 (0.000500),  f1: 0.999182, recall: 0.999181, roc: 0.999934, temps convergir algoritme 3.477355, i temps test: 0.071629
+Logistic Regression,  dades (6.000000):  accuracy: 0.998994 (0.000353),  f1: 0.999105, recall: 0.999105, roc: 0.999891, temps convergir algoritme 0.705057, i temps test: 0.023502
+Guassian Naive Bayes,  dades (6.000000):  accuracy: 0.994591 (0.000422),  f1: 0.991933, recall: 0.991890, roc: 0.996977, temps convergir algoritme 0.037387, i temps test: 0.019007
+Linear Discriminant Analysis,  dades (6.000000):  accuracy: 0.996694 (0.000599),  f1: 0.997799, recall: 0.997800, roc: 0.999063, temps convergir algoritme 0.248959, i temps test: 0.024935
+Decision Tree,  dades (6.000000):  accuracy: 0.999813 (0.000259),  f1: 0.999872, recall: 0.999872, roc: 0.999813, temps convergir algoritme 0.160248, i temps test: 0.011418
+K Nearest Neigbors,  dades (6.000000):  accuracy: 0.999743 (0.000246),  f1: 0.999821, recall: 0.999821, roc: 0.999933, temps convergir algoritme 0.018677, i temps test: 8.562271
+Extra Trees,  dades (6.000000):  accuracy: 0.999933 (0.000110),  f1: 0.999949, recall: 0.999949, roc: 1.000000, temps convergir algoritme 0.883781, i temps test: 0.072164
+Random Forest,  dades (6.000000):  accuracy: 0.999915 (0.000149),  f1: 0.999923, recall: 0.999923, roc: 0.999982, temps convergir algoritme 1.163956, i temps test: 0.442206
+HistGradientBoosting,  dades (6.000000):  accuracy: 0.999966 (0.000076),  f1: 0.999949, recall: 0.999949, roc: 0.999981, temps convergir algoritme 0.782509, i temps test: 0.048980
+ADABoosting,  dades (6.000000):  accuracy: 0.999914 (0.000151),  f1: 0.999923, recall: 0.999923, roc: 1.000000, temps convergir algoritme 9.531644, i temps test: 0.232996
+Bagging Classifier,  dades (6.000000):  accuracy: 0.994505 (0.000528),  f1: 0.991807, recall: 0.991762, roc: 0.997664, temps convergir algoritme 0.375173, i temps test: 0.077892
+Perceptró,  dades (6.000000):  accuracy: nan (nan),  f1: nan, recall: nan, roc: nan, temps convergir algoritme 0.084275, i temps test: 0.015096
+GradientBoostingClassifier,  dades (6.000000):  accuracy: 0.999914 (0.000111),  f1: 0.999923, recall: 0.999923, roc: 0.999965, temps convergir algoritme 6.528635, i temps test: 0.016349
 
-Perceptró  dades (6.000000):  accuracy: nan (nan),  f1: nan, recall: nan, roc: nan tiempo 0.081290
-GradientBoostingClassifier  dades (6.000000):  accuracy: 0.999913 (0.000113),  f1: 0.999923, recall: 0.999923, roc: 0.999965 tiempo 6.554315
+
+
+
 
 Dimensionalitat de la BBDD: (39089, 46)
 Dimensionalitat de les entrades X (39089, 45)
 Dimensionalitat de l'atribut Y (39089,)
-SVM rbf gamma 0.7  dades (6.000000):  accuracy: 0.999423 (0.000514),  f1: 0.999437, recall: 0.999437, roc: 0.999996 tiempo 3.753082
-SVM sigmoide gamma 0.7  dades (6.000000):  accuracy: 0.500000 (0.000000),  f1: 0.642215, recall: 0.749520, roc: 0.983163 tiempo 294.843629
-SVM precomputed gamma 0.7  dades (6.000000):  accuracy: nan (nan),  f1: nan, recall: nan, roc: nan tiempo 0.018430
-SVM polinomi gamma 0.7  dades (6.000000):  accuracy: 0.999899 (0.000117),  f1: 0.999898, recall: 0.999898, roc: 1.000000 tiempo 1.153886
-SVM linear gamma 0.7  dades (6.000000):  accuracy: 0.999204 (0.000549),  f1: 0.999258, recall: 0.999258, roc: 0.999937 tiempo 3.619085
-Logistic Regression  dades (6.000000):  accuracy: 0.999011 (0.000524),  f1: 0.999130, recall: 0.999130, roc: 0.999890 tiempo 0.601320
-Guassian Naive Bayes  dades (6.000000):  accuracy: 0.994590 (0.000484),  f1: 0.991933, recall: 0.991890, roc: 0.997218 tiempo 0.033016
-Linear Discriminant Analysis  dades (6.000000):  accuracy: 0.996625 (0.000988),  f1: 0.997850, recall: 0.997851, roc: 0.998933 tiempo 0.206177
-Decision Tree  dades (6.000000):  accuracy: 0.999897 (0.000187),  f1: 0.999898, recall: 0.999898, roc: 0.999897 tiempo 0.127582
-K Nearest Neigbors  dades (6.000000):  accuracy: 0.999795 (0.000250),  f1: 0.999846, recall: 0.999847, roc: 0.999931 tiempo 0.016015
-Extra Trees  dades (6.000000):  accuracy: 0.999931 (0.000113),  f1: 0.999949, recall: 0.999949, roc: 1.000000 tiempo 0.704671
-Random Forest  dades (6.000000):  accuracy: 0.999915 (0.000108),  f1: 0.999923, recall: 0.999923, roc: 0.999999 tiempo 1.088525
-HistGradientBoosting  dades (6.000000):  accuracy: 0.999949 (0.000114),  f1: 0.999923, recall: 0.999923, roc: 0.999965 tiempo 0.831309
-ADABoosting  dades (6.000000):  accuracy: 0.999931 (0.000115),  f1: 0.999949, recall: 0.999949, roc: 1.000000 tiempo 8.073277
-Bagging Classifier  dades (6.000000):  accuracy: 0.994553 (0.000881),  f1: 0.991883, recall: 0.991839, roc: 0.997390 tiempo 0.294376
-Perceptró  dades (6.000000):  accuracy: nan (nan),  f1: nan, recall: nan, roc: nan tiempo 0.081290
-GradientBoostingClassifier  dades (6.000000):  accuracy: 0.999847 (0.000153),  f1: 0.999872, recall: 0.999872, roc: 0.999966 tiempo 5.457921
+SVM rbf gamma 0.7,  dades (6.000000):  accuracy: 0.999455 (0.000285),  f1: 0.999488, recall: 0.999488, roc: 0.999997, temps convergir algoritme 3.898898, i temps test: 0.161706
+SVM sigmoide gamma 0.7,  dades (6.000000):  accuracy: 0.500000 (0.000000),  f1: 0.642241, recall: 0.749521, roc: 0.983099, temps convergir algoritme 294.457164, i temps test: 12.455735
+SVM precomputed gamma 0.7,  dades (6.000000):  accuracy: nan (nan),  f1: nan, recall: nan, roc: nan, temps convergir algoritme 0.018547, i temps test: 0.000000
+SVM polinomi gamma 0.7,  dades (6.000000):  accuracy: 0.999897 (0.000146),  f1: 0.999898, recall: 0.999898, roc: 1.000000, temps convergir algoritme 1.170613, i temps test: 0.022799
+SVM linear gamma 0.7,  dades (6.000000):  accuracy: 0.999045 (0.000342),  f1: 0.999181, recall: 0.999181, roc: 0.999936, temps convergir algoritme 3.571596, i temps test: 0.084771
+Logistic Regression,  dades (6.000000):  accuracy: 0.998997 (0.000487),  f1: 0.999105, recall: 0.999105, roc: 0.999889, temps convergir algoritme 0.508626, i temps test: 0.021537
+Guassian Naive Bayes,  dades (6.000000):  accuracy: 0.994605 (0.001076),  f1: 0.991960, recall: 0.991916, roc: 0.997233, temps convergir algoritme 0.032881, i temps test: 0.018886
+Linear Discriminant Analysis,  dades (6.000000):  accuracy: 0.996684 (0.000515),  f1: 0.997876, recall: 0.997877, roc: 0.998940, temps convergir algoritme 0.205828, i temps test: 0.021986
+Decision Tree,  dades (6.000000):  accuracy: 0.999812 (0.000161),  f1: 0.999872, recall: 0.999872, roc: 0.999812, temps convergir algoritme 0.145630, i temps test: 0.010884
+K Nearest Neigbors,  dades (6.000000):  accuracy: 0.999848 (0.000152),  f1: 0.999872, recall: 0.999872, roc: 0.999932, temps convergir algoritme 0.015697, i temps test: 8.619454
+Extra Trees,  dades (6.000000):  accuracy: 0.999931 (0.000115),  f1: 0.999949, recall: 0.999949, roc: 1.000000, temps convergir algoritme 0.754292, i temps test: 0.073775
+Random Forest,  dades (6.000000):  accuracy: 0.999915 (0.000108),  f1: 0.999923, recall: 0.999923, roc: 1.000000, temps convergir algoritme 1.057357, i temps test: 0.449848
+HistGradientBoosting,  dades (6.000000):  accuracy: 0.999931 (0.000114),  f1: 0.999949, recall: 0.999949, roc: 0.999966, temps convergir algoritme 0.683065, i temps test: 0.045682
+ADABoosting,  dades (6.000000):  accuracy: 0.999933 (0.000111),  f1: 0.999949, recall: 0.999949, roc: 1.000000, temps convergir algoritme 7.934424, i temps test: 0.222395
+Bagging Classifier,  dades (6.000000):  accuracy: 0.994535 (0.000710),  f1: 0.991857, recall: 0.991814, roc: 0.997806, temps convergir algoritme 0.285227, i temps test: 0.069673
+Perceptró,  dades (6.000000):  accuracy: nan (nan),  f1: nan, recall: nan, roc: nan, temps convergir algoritme 0.078302, i temps test: 0.015958
+GradientBoostingClassifier,  dades (6.000000):  accuracy: 0.999862 (0.000129),  f1: 0.999898, recall: 0.999898, roc: 0.999965, temps convergir algoritme 5.168839, i temps test: 0.015735
 
-Process finished with exit code 0
+
+
+
