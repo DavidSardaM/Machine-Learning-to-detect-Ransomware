@@ -1,3 +1,5 @@
+#<div style="text-align: justify">
+
 # TREBALL DE FI DE GRAU 2021-2022
 ### Nom: David Sardà Martin
 ### DATASET: Detecting Obfuscated Malware using Memory Feature Engineering.
@@ -158,3 +160,5 @@ provar de crear una xarxa convolucional amb PyTorch i veure el resultat que ofer
 
 ## Llicencia
 UAB
+
+#<div>
