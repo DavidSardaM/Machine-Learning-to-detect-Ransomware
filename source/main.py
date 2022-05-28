@@ -1,4 +1,9 @@
-# Aqui el codi amb totes les proves
+#----------------------------------------------------------------------------------------------
+#                                                                                               #
+#              IMPORTING LIBRARIES                                                              #
+#                                                                                               #
+#-----------------------------------------------------------------------------------------------
+
 
 import pandas as pd
 import seaborn as sns
@@ -25,12 +30,19 @@ from sklearn.utils.fixes import loguniform
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import f1_score, precision_recall_curve, average_precision_score, roc_curve, auc, accuracy_score, make_scorer
-
+import pickle
 import numpy as np
 import torch
-# Funcio per a llegir dades en format csv
+
 pd.set_option("display.max.columns", None)
 pd.set_option("display.precision", 3)
+
+
+#----------------------------------------------------------------------------------------------
+#                                                                                               #
+#              LOADING DATASET                                                                  #
+#                                                                                               #
+#-----------------------------------------------------------------------------------------------
 
 def load_dataset(path):
     dataset = pd.read_csv(path, header=0, delimiter=',')
@@ -38,7 +50,11 @@ def load_dataset(path):
 
 dataset_predir = load_dataset('../data/Obfuscated-MalMem2022.csv')
 
-
+#----------------------------------------------------------------------------------------------
+#                                                                                               #
+#              PREPROCESING DATASET                                                             #
+#                                                                                               #
+#-----------------------------------------------------------------------------------------------
 
 dataset_benign = dataset_predir[(dataset_predir['Category'].astype(str).str.startswith('Benign'))]
 print("Dimensionalitat Benignes:", dataset_benign.shape)
@@ -49,15 +65,17 @@ print("Dimensionalitat Ransomwares:", dataset_ransom.shape)
 
 
 
-
-
 dataset_predir = pd.concat([dataset_benign, dataset_ransom])
 
 
 dataset_predir=dataset_predir.drop(['Category'], axis=1) #La classe categoria i classe ja no aporten informació diferent no té sentit conservar les dos, les dues es poden identificar com objectiu, no té sentit predir que una instancia es malware sabent que es Ransomware.
 dataset_predir['Class'] = dataset_predir['Class'].replace(['Benign','Malware'],[0,1]) #convertim el malware i programes benignes en 0 i 1, es més fàcil treballar amb valors numèrics
 
-
+#----------------------------------------------------------------------------------------------
+#                                                                                               #
+#              SEING THE DATASET                                                                #
+#                                                                                               #
+#-----------------------------------------------------------------------------------------------
 
 
 print("Primer observem les dades y estadístiques sobre les dades")
@@ -87,7 +105,7 @@ for col in dataset_predir.columns:
     print("Nombre valors diferents de l'atribut " + col + ":" + str(len(dataset_predir[col].unique())))
 
 
-#eliminem les categories que només tenen un possible valor
+
 
 
 print("Aixó com també observarem el nombre de dades nules que tenim")
@@ -98,7 +116,11 @@ with open('../results/estadistiques_dades.txt', 'w') as f:
     f.write(dataset_predir.describe().to_string())
 
 
-
+#----------------------------------------------------------------------------------------------
+#                                                                                               #
+#              ANALIZING THE DISTRIBUTIONS OF THE DATASET                                       #
+#                                                                                               #
+#-----------------------------------------------------------------------------------------------
 
 def distribucions(dataset):
     print("Un cop començades a veure les dades passarem a observar les distribucions i relacions que considerem interessants")
@@ -133,6 +155,13 @@ def distribucions(dataset):
 
 """
 #distribucions(dataset_predir)
+
+
+#----------------------------------------------------------------------------------------------
+#                                                                                               #
+#              DELETING SOME ATRIBUTES                                                          #
+#                                                                                               #
+#-----------------------------------------------------------------------------------------------
 dataset_predir=dataset_predir.drop(['pslist.nprocs64bit', 'handles.nport', 'svcscan.interactive_process_services','callbacks.ngeneric', 'callbacks.nanonymous'], axis=1)
 
 
@@ -155,7 +184,7 @@ x = data[:, :-1]
 y = data[:, -1]
 
 
-print(y)
+
 
 print("Dimensionalitat de la BBDD:", dataset_predir.shape)
 print("Dimensionalitat de les entrades X", x.shape)
@@ -164,29 +193,18 @@ print("Dimensionalitat de l'atribut Y", y.shape)
 
 
 
-# +--------------------------+
-# | NO VA PER MEMORIA         |
-# +--------------------------+
+#----------------------------------------------------------------------------------------------
+#                                                                                               #
+#              PROVING SOME MODELS                                                              #
+#                                                                                               #
+#-----------------------------------------------------------------------------------------------
+
+
 
 """
-    #print("Posteriorment passarem a veure els histogrames de les variables")
-    #print("Primer els histogrames de tots els atributs")
-    #plt.figure()
-    #sns.pairplot(dataset)
-    #plt.savefig("../figures/histograma.png")
-    #plt.show()
-    
-    
-    
-    print("Després els histogrames dels atributs segons la classe objectiu")
 
-    plt.figure()
-    sns.pairplot(dataset, hue="Class", palette={0: 'thistle', 1: "lightskyblue"})
-    plt.savefig("../figures/histograma_per_classes.png")
-    plt.show()
+# DEFINE MODELS TO PROVE
 
-"""
-"""
 models = []
 
 models.append(('SVM rbf gamma 0.7', make_pipeline(MinMaxScaler(), SVC(C=1.0, kernel='rbf', gamma=0.7, probability=True))))
@@ -215,17 +233,26 @@ scoring = ['balanced_accuracy','f1_weighted',  'recall_weighted',  'roc_auc_ovr_
 
 
 for index, (name, model) in enumerate(models):
-    K_Fold = model_selection.KFold (n_splits = 6, shuffle=True)
-    cv_results = model_selection.cross_validate (model, x, y, cv = K_Fold, scoring = scoring)
+    K_Fold = model_selection.KFold (n_splits = 6, shuffle=True) # Definim una validació creuada de 6, barrejant les dades
+    cv_results = model_selection.cross_validate (model, x, y, cv = K_Fold, scoring = scoring)  #Executem la validació creuada
     message =  "%s,  dades (%f):  accuracy: %f (%f),  f1: %f, recall: %f, roc: %f, temps convergir algoritme %f, i temps test: %f " % (name, 6,cv_results['test_balanced_accuracy'].mean(),
                                     cv_results['test_balanced_accuracy'].std(),  cv_results['test_f1_weighted'].mean(), cv_results['test_recall_weighted'].mean(),
                                     cv_results['test_roc_auc_ovr_weighted'].mean(), cv_results['fit_time'].mean(),  cv_results['score_time'].mean())
-    print (message)
+    print (message) # Imprimim els resultats.
 
 
 
 """
+
+
+#----------------------------------------------------------------------------------------------
+#                                                                                               #
+#              OPTIMITZATING THE SELECTED MOODELS                                               #
+#                                                                                               #
+#-----------------------------------------------------------------------------------------------
 """
+
+# DEFINE THE PARAMETERS TO OPTIMIZATE
 param = {
     'l2_regularization': loguniform(1e-6, 1e3),
     'learning_rate': loguniform(0.001, 10),
@@ -235,7 +262,7 @@ param = {
     'max_iter': [10,50,100,200, 500,1000]
 }
 
-
+# OPTIMIZATE THE HISTGRADIENTBOOSTING MODEL
 
 hgb = HistGradientBoostingClassifier()# Instantiate the grid search model
 random_search_extra = RandomizedSearchCV(estimator = hgb, param_distributions = param, cv = 6, n_jobs = -1, n_iter=1000)
@@ -246,9 +273,9 @@ print(best_estimator1)
 param={'C': loguniform(1e0, 1e5),
  'gamma': loguniform(1e-4, 1),
  'kernel': ['poly'],
- 'class_weight':['balanced', None]}
+ 'class_weight':['balanced', None]}random_state=seed
 
-
+# OPTIMIZATE THE SVM POLINOMIAL
 
 svm = SVC( probability=True)# Instantiate the grid search model
 random_search_extra = RandomizedSearchCV(estimator = svm, param_distributions = param, cv = 6, n_jobs = -1, n_iter=500)
@@ -256,6 +283,8 @@ random_search_extra = random_search_extra.fit(x, y)
 best_estimator1 = random_search_extra.best_estimator_
 print(best_estimator1)
 """
+
+# RESULTATS DE L'EXECUCIÓ QUE OBTENIM
 """
 HistGradientBoostingClassifier(l2_regularization=1.0407479858562003e-05,
                                learning_rate=0.08115041228011703, max_bins=84,
@@ -266,6 +295,13 @@ SVC(C=257.445884056174, class_weight='balanced', gamma=0.18325543501264982,
     kernel='poly', probability=True)
 
 """
+
+
+#----------------------------------------------------------------------------------------------
+#                                                                                               #
+#              PROVING THE OPTIMITZATED MODELS                                                  #
+#                                                                                               #
+#-----------------------------------------------------------------------------------------------
 models = []
 
 models.append(('HistGradientBoosting optimitzat', make_pipeline(MinMaxScaler(), HistGradientBoostingClassifier(l2_regularization=1.0407479858562003e-05,
@@ -275,18 +311,29 @@ models.append(('HistGradientBoosting optimitzat', make_pipeline(MinMaxScaler(), 
 models.append(('SVM polinomi optimitzat', make_pipeline(MinMaxScaler(), SVC(C=257.445884056174, class_weight='balanced', gamma=0.18325543501264982,
     kernel='poly', probability=True))))
 
+
+# DEFINE THE METRICS
+
 scoring = ['balanced_accuracy','f1_weighted',  'recall_weighted',  'roc_auc_ovr_weighted']
-
-
+estimator=0
+# CREATE AND PROVE THE MODELS
 
 for index, (name, model) in enumerate(models):
     K_Fold = model_selection.KFold (n_splits = 6, shuffle=True)
-    cv_results = model_selection.cross_validate (model, x, y, cv = K_Fold, scoring = scoring)
+    cv_results = model_selection.cross_validate (model, x, y, cv = K_Fold, scoring = scoring, return_estimator=True)
     message =  "%s,  dades (%f):  accuracy: %f (%f),  f1: %f, recall: %f, roc: %f, temps convergir algoritme %f, i temps test: %f " % (name, 6,cv_results['test_balanced_accuracy'].mean(),
                                     cv_results['test_balanced_accuracy'].std(),  cv_results['test_f1_weighted'].mean(), cv_results['test_recall_weighted'].mean(),
                                     cv_results['test_roc_auc_ovr_weighted'].mean(), cv_results['fit_time'].mean(),  cv_results['score_time'].mean())
+
     print (message)
 
+
+
+#----------------------------------------------------------------------------------------------
+#                                                                                               #
+#              GUARDAR MODELS                                                                   #
+#                                                                                               #
+#-----------------------------------------------------------------------------------------------
 
 clf1=HistGradientBoostingClassifier(l2_regularization=1.0407479858562003e-05,
                                learning_rate=0.08115041228011703, max_bins=84,
@@ -295,6 +342,38 @@ clf1=HistGradientBoostingClassifier(l2_regularization=1.0407479858562003e-05,
 clf2=SVC(C=257.445884056174, class_weight='balanced', gamma=0.18325543501264982,
     kernel='poly', probability=True)
 
+
+
+#
+
+X_train, X_test, Y_train, Y_test = model_selection.train_test_split(x, y, test_size=0.2, shuffle=True)
+
+clf1.fit(X_train, Y_train)
+filename_hgb = '../models/modelHistGradientBoosting_optimitzat.sav'
+pickle.dump(clf1, open(filename_hgb, 'wb'))
+
+
+
+clf2.fit(X_train, Y_train)
+filename_svm = '../models/modelSVM_optimitzat.sav'
+pickle.dump(clf2, open(filename_svm, 'wb'))
+
+
+
+
+
+
+
+
+
+
+#----------------------------------------------------------------------------------------------
+#                                                                                               #
+#              PLOTING THE RESULTS                                                              #
+#                                                                                               #
+#-----------------------------------------------------------------------------------------------
+
+# PLOT THE CONFUSION MATRIX
 
 probs_hgb = cross_val_predict(clf1, x, y, cv=6, method='predict_proba')
 """
@@ -305,7 +384,6 @@ plt.figure()
 sns.heatmap(conf_mat, annot=True, cmap="YlGnBu")
 plt.savefig("../figures/confusion_matrix_HGB.png")
 plt.show()
-"""
 
 probs_svm = cross_val_predict(clf2, x, y, cv=6, method='predict_proba')
 
@@ -317,17 +395,16 @@ sns.heatmap(conf_mat, annot=True, cmap="YlGnBu")
 plt.savefig("../figures/confusion_matrix_svm.png")
 plt.show()
 
-
-
-
-
+"""
 
 
 n_classes=2
 
-# Corba precision recall
 
 def analisi_res(probs,y,name):
+
+    # PLOT THE PRECISION-RECALL CURVE
+
     precision = {}
     recall = {}
     average_precision = {}
@@ -345,13 +422,17 @@ def analisi_res(probs,y,name):
     plt.title("Precision-recall curve for {} model".format(name))
     plt.savefig("../figures/corba_precision_recall_{}.png".format(name))
     plt.show()
-    #corba ROC
+
+
+    # PLOT THE ROC CURVE
+
     fpr = {}
     tpr = {}
     roc_auc = {}
     for i in range(n_classes):
         fpr[i], tpr[i], _ = roc_curve(y== i, probs[:, i])
         roc_auc[i] = auc(fpr[i], tpr[i])
+
 
 
     plt.figure()
@@ -363,5 +444,5 @@ def analisi_res(probs,y,name):
     plt.show()
 
 
-analisi_res(probs_hgb,y,'HistGadientBoosting')
-analisi_res(probs_svm,y,'SVM')
+#analisi_res(probs_hgb,y,'HistGadientBoosting')
+#analisi_res(probs_svm,y,'SVM')
