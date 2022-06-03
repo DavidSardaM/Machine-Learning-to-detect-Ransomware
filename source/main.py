@@ -134,7 +134,7 @@ def distribucions(dataset):
 
 
 
-"""
+
 
     print("Finalment veurem la distribució de la variables objectiu i si les classes es troben balancejades, si és el cas la precisió de les dades serà molt més reprsentativa de les dades")
     plt.figure()
@@ -153,7 +153,7 @@ def distribucions(dataset):
     print('El percentatge de mostres que son malware representa un {:.2f}% del total de dades'.format(porc_pot))
 
 
-"""
+
 #distribucions(dataset_predir)
 
 
@@ -169,7 +169,7 @@ dataset_predir=dataset_predir.drop(['pslist.avg_handlers', 'ldrmodules.not_in_me
                                     'malfind.protection', 'psxview.not_in_pslist',  'psxview.not_in_session_false_avg',
                                     'psxview.not_in_csrss_handles'], axis=1)
 
-
+distribucions(dataset_predir)
 
 
 def standardize_mean(dataset):
@@ -201,7 +201,7 @@ print("Dimensionalitat de l'atribut Y", y.shape)
 
 
 
-"""
+
 
 # DEFINE MODELS TO PROVE
 
@@ -242,7 +242,7 @@ for index, (name, model) in enumerate(models):
 
 
 
-"""
+
 
 
 #----------------------------------------------------------------------------------------------

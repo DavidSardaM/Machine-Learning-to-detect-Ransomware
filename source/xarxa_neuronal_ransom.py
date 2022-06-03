@@ -5,7 +5,7 @@
 #                                                                                               #
 #-----------------------------------------------------------------------------------------------
 
-
+from sklearn.metrics import f1_score, precision_score, recall_score
 import torch
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
@@ -173,7 +173,8 @@ for epoch in tqdm.trange(EPOCHS):
         start = time.time()
 
         y_pred = model(X_test)
-        correct = (torch.argmax(y_pred, dim=1) == y_test).type(torch.FloatTensor)
+        y_pred_class=torch.argmax(y_pred, dim=1)
+        correct = (y_pred_class == y_test).type(torch.FloatTensor)
 
         done = time.time()
         elapsed = done - start
@@ -194,13 +195,19 @@ done_train = time.time()
 #-----------------------------------------------------------------------------------------------
 
 
+print("Ara avaluarem el rendiment de la xarxa neuronal")
 
+print("La taxa encert final de les dades d'entrenament és:", accuracy_list_train[-1])
+print("La taxa encert final de les dades de test és", accuracy_list_test[-1])
 
-print("La precisió final de les dades d'entrenament és:", accuracy_list_train[-1])
-print("La precisió final de les dades de test és", accuracy_list_test[-1])
+print('F1: {}'.format(f1_score(y_test.numpy(), y_pred_class.numpy())))
+print('Precision: {}'.format(precision_score(y_test.numpy(), y_pred_class.numpy())))
+print('Recall: {}'.format(recall_score(y_test.numpy(), y_pred_class.numpy())))
 print("Temps en predir:" , elapsed)
 elapsed_train = done_train - start_train
 print("Temps en entrenar:" , elapsed_train)
+
+
 
 # PLOT THE EVOLUTION OF THE ACCURACY
 

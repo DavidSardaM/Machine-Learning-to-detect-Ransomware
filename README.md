@@ -1,4 +1,4 @@
-#<div style="text-align: justify">
+<div style="text-align: justify">
 
 # TREBALL DE FI DE GRAU 2021-2022
 ### Nom: David Sardà Martin
@@ -30,8 +30,11 @@ Per la selecció de models finals per predir detectar Ransomware es crearà un m
 - demo: En aquest directori trobem el fitxer que ens mostra com podem executar el model creat.
 - figures: En aquest directori trobem les diferents imatges que s'han fet per analitzar el dataset i el resultat dels models.
 - models: En aquest directori trobem guardats els models creats.
-- notebook: En aquest directori trobem guardar un fitxer jupyter noteboook que mostra els resultats obtinguts.
+- notebook: En aquest directori trobem guardar un fitxer jupyter noteboook que mostra els resultats obtinguts, permet veure ràpidament els resultats obtinguts sense necessitat d'executar tot el codi.
 - results: En aquest directori trobem el resultat de les execucions on imprimiem els diferents resultats o dades que s'han considerat necessàries.
+  - analisi.txt: ES pot veure el resultat de l'analisi del Dataset.
+  - estadistiques_dades.txt: Es poden veure estadístiques dels atributs inciials del Dataset.
+  - Resultats.txt: En ell es pot trobar els diferents resultats d'aplicar els diferents algoritmes per la detecció de Ransomware.
 - source: En aquest directori hi ha el procès de creació dels diferents models creats així com el anàlisi d'ells.
   - main.py: En aquest fitxer hi ha procès de creació dels models creats amb la llibreria sklearn.
   - xarxa neuronal.py: En aquest fitxer hi ha les proves fetes per entendre el funcionament i procès de crear un model de xarxa neuronal amb PyTorch.
@@ -83,7 +86,7 @@ Bagging Classifier|0.994505 (0.000528)|0.991807|0.991762|0.997664|0.375173|0.077
 GradientBoostingClassifier|0.999914 (0.000111)|0.999923|0.999923|0.999965|6.528635|0.016349|
 
 
-També s'ha creat una xarxa neuronal amb PyTorch.
+També s'ha creat una xarxa neuronal amb PyTorch, el qual s'ha definit un model d'optimització per optimitzar els pesos i per tan podem veure en la secció d'optimització. 
 
 ## OPTIMITZACIÓ
 
@@ -91,6 +94,8 @@ S'han seleccionat aquells que ofereixen un millor rendiment segons les mètrique
 el temps de les mostres del dataset per predir ràpidament si s'esta produïnt i l'accuracy i recall per detectar i classificar correctament si es tracta d'un
 atac de Ransomware o no. A continuació podem veure els models seleccionats i el seu rendiment un cop optimitzats, juntament amb el rendiment de la
 xarxa neuronal creada amb PyTorch:
+
+
 
 Model |accuracy (desviació típica)|f1 score|recall|roc_auc|temps convergir (s) |temps test (s) |
 | ----------- | ------------------------------------------------- | -------- | -------- | ------ | ------- | ------- |
@@ -104,14 +109,14 @@ actualitzar els pesos ha sigut el SGD.
 
 ## Demo
 
-Podem provar d'executar una demo
+Podem provar d'executar una demo, en el directori demo podem veure un exemple de com executar els models creats i que s'han guardat, el codi explica com comentar per executar amb cada un dels models creats.
 
 ## Comparació de Resultats
 
 No hi ha cap predicció que s’hagi fet exactament amb el mateix Dataset, ja que s’ha adaptat pel nostre cas en concret, extraient del Dataset tots aquells casos que no corresponien a mostres benignes o d’atacs de Ransomware. Per tan la comparació no es farà especificament pel dataset amb el que hem treballat.
 
 
-Si comparem amb els resultats obtinguts pels creadors del Dataset [1], podem veure que els resultats dels algoritmes es lleugerament superior pel nostre cas de predir Ransomware que en el seu cas per predir malware ofuscat i obtenen resultats de fins a 98% en precisió i 97% de recall.
+Si comparem amb els resultats obtinguts pels creadors del Dataset [1], podem veure que els resultats dels algoritmes és lleugerament superior pel nostre cas de predir Ransomware que en el seu cas per predir malware ofuscat i obtenen resultats de fins a 98% en precisió i 97% de recall.
 
 
 
@@ -161,4 +166,4 @@ provar de crear una xarxa convolucional amb PyTorch i veure el resultat que ofer
 ## Llicencia
 UAB
 
-#<div>
+</div>

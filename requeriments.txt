@@ -1,1 +1,1 @@
-hola
+És necessari tenir les llibreries: seaborn, tqdm, time, torch, numpy, matplotlib, scikit-learn, tensorboard, sklearn, scipy

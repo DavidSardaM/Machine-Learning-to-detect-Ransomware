@@ -1,1 +1,38 @@
-En aquest directori aniran els resultats.
+Dimensionalitat de la BBDD: (39089, 44)
+Dimensionalitat de les entrades X (39089, 43)
+Dimensionalitat de l'atribut Y (39089,)
+SVM rbf gamma 0.7,  dades (6.000000):  accuracy: 0.999504 (0.000362),  f1: 0.999463, recall: 0.999463, roc: 0.999996, temps convergir algoritme 3.967552, i temps test: 0.163600 
+SVM sigmoide gamma 0.7,  dades (6.000000):  accuracy: 0.500000 (0.000000),  f1: 0.642213, recall: 0.749520, roc: 0.983532, temps convergir algoritme 288.744356, i temps test: 12.749873 
+SVM precomputed gamma 0.7,  dades (6.000000):  accuracy: nan (nan),  f1: nan, recall: nan, roc: nan, temps convergir algoritme 0.017838, i temps test: 0.000000 
+SVM polinomi gamma 0.7,  dades (6.000000):  accuracy: 0.999898 (0.000186),  f1: 0.999898, recall: 0.999898, roc: 1.000000, temps convergir algoritme 1.078872, i temps test: 0.025195 
+SVM linear gamma 0.7,  dades (6.000000):  accuracy: 0.999220 (0.000281),  f1: 0.999284, recall: 0.999284, roc: 0.999936, temps convergir algoritme 3.458663, i temps test: 0.092573 
+Logistic Regression,  dades (6.000000):  accuracy: 0.998828 (0.000985),  f1: 0.999028, recall: 0.999028, roc: 0.999888, temps convergir algoritme 0.624805, i temps test: 0.031094 
+Guassian Naive Bayes,  dades (6.000000):  accuracy: 0.994025 (0.000803),  f1: 0.991099, recall: 0.991046, roc: 0.994726, temps convergir algoritme 0.035581, i temps test: 0.020315 
+Linear Discriminant Analysis,  dades (6.000000):  accuracy: 0.996402 (0.000547),  f1: 0.997620, recall: 0.997621, roc: 0.998913, temps convergir algoritme 0.220473, i temps test: 0.029783 
+Decision Tree,  dades (6.000000):  accuracy: 0.999762 (0.000336),  f1: 0.999846, recall: 0.999847, roc: 0.999762, temps convergir algoritme 0.150513, i temps test: 0.012158 
+K Nearest Neigbors,  dades (6.000000):  accuracy: 0.999794 (0.000104),  f1: 0.999847, recall: 0.999847, roc: 0.999914, temps convergir algoritme 0.015398, i temps test: 8.439040 
+Extra Trees,  dades (6.000000):  accuracy: 0.999916 (0.000106),  f1: 0.999923, recall: 0.999923, roc: 1.000000, temps convergir algoritme 0.727817, i temps test: 0.076691 
+Random Forest,  dades (6.000000):  accuracy: 0.999898 (0.000156),  f1: 0.999898, recall: 0.999898, roc: 0.999983, temps convergir algoritme 1.228666, i temps test: 0.340849 
+HistGradientBoosting,  dades (6.000000):  accuracy: 0.999966 (0.000076),  f1: 0.999949, recall: 0.999949, roc: 0.999999, temps convergir algoritme 0.721491, i temps test: 0.048631 
+ADABoosting,  dades (6.000000):  accuracy: 0.999930 (0.000116),  f1: 0.999949, recall: 0.999949, roc: 0.999999, temps convergir algoritme 8.033686, i temps test: 0.228807 
+Bagging Classifier,  dades (6.000000):  accuracy: 0.993970 (0.000922),  f1: 0.991023, recall: 0.990969, roc: 0.997623, temps convergir algoritme 0.268550, i temps test: 0.065715 
+GradientBoostingClassifier,  dades (6.000000):  accuracy: 0.999915 (0.000109),  f1: 0.999923, recall: 0.999923, roc: 0.999966, temps convergir algoritme 5.596061, i temps test: 0.016063 
+
+
+
+Models optimitzats
+HistGradientBoosting optimitzat,  dades (6.000000):  accuracy: 0.999983 (0.000038),  f1: 0.999974, recall: 0.999974, roc: 0.999999, temps convergir algoritme 0.929443, i temps test: 0.067714 
+SVM polinomi optimitzat,  dades (6.000000):  accuracy: 0.999914 (0.000110),  f1: 0.999923, recall: 0.999923, roc: 1.000000, temps convergir algoritme 1.277520, i temps test: 0.023207
+
+
+
+Ara avaluarem el rendiment de la xarxa neuronal
+La taxa encert final de les dades d'entrenament és: 0.993988037109375
+La taxa encert final de les dades de test és 0.9928370714187622
+F1: 0.9854620976116303
+Precision: 0.9824016563146998
+Recall: 0.9885416666666667
+Temps en predir: 0.009304523468017578
+Temps en entrenar: 84.00562596321106
+
+Process finished with exit code 0
