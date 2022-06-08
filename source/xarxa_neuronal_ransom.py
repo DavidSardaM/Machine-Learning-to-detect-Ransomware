@@ -186,7 +186,7 @@ for epoch in tqdm.trange(EPOCHS):
         y_pred_num=np.array(y_pred)
 
 done_train = time.time()
-#torch.save(model.state_dict(), "../models/xarxa_neuronal.sav")
+torch.save(model.state_dict(), "../models/xarxa_neuronal.sav")
 
 #----------------------------------------------------------------------------------------------
 #                                                                                               #
@@ -215,7 +215,7 @@ plt.figure(figsize=(10,10))
 plt.plot(accuracy_list_train, label='train loss')
 plt.plot(accuracy_list_test, label='test loss')
 plt.legend()
-#plt.savefig("../figures/accuracy_XarxaNeuronal_Ransom_2000.png")
+plt.savefig("../figures/accuracy_XarxaNeuronal_Ransom.png")
 plt.show()
 
 pred = y_pred.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
@@ -236,7 +236,7 @@ for i in range(n_classes):
     plt.plot(fpr[i], tpr[i], label='ROC curve of class {0} (area = {1:0.4f})' ''.format(i, roc_auc[i]))
 plt.title("ROC curve for XarxaNeuronal")
 plt.legend()
-#plt.savefig("../figures/corba_roc_Xarxa_Neuronal_Ransom.png")
+plt.savefig("../figures/corba_roc_Xarxa_Neuronal_Ransom.png")
 plt.show()
 
 # PLOT THE CONFUSION MATRIX
@@ -246,5 +246,5 @@ conf_mat = confusion_matrix(y_test, pred)
 
 plt.figure()
 sns.heatmap(conf_mat, annot=True, cmap="YlGnBu")
-#plt.savefig("../figures/confusion_matrix_XarxaNeuronal_Ransom.png")
+plt.savefig("../figures/confusion_matrix_XarxaNeuronal_Ransom.png")
 plt.show()

@@ -204,7 +204,7 @@ print("Dimensionalitat de l'atribut Y", y.shape)
 
 
 # DEFINE MODELS TO PROVE
-
+"""
 models = []
 
 models.append(('SVM rbf gamma 0.7', make_pipeline(MinMaxScaler(), SVC(C=1.0, kernel='rbf', gamma=0.7, probability=True))))
@@ -243,7 +243,7 @@ for index, (name, model) in enumerate(models):
 
 
 
-
+"""
 
 #----------------------------------------------------------------------------------------------
 #                                                                                               #
@@ -349,12 +349,17 @@ clf2=SVC(C=257.445884056174, class_weight='balanced', gamma=0.18325543501264982,
 X_train, X_test, Y_train, Y_test = model_selection.train_test_split(x, y, test_size=0.2, shuffle=True)
 
 clf1.fit(X_train, Y_train)
+
+result = clf1.score(X_test, Y_test)
+print(result)
 filename_hgb = '../models/modelHistGradientBoosting_optimitzat.sav'
 pickle.dump(clf1, open(filename_hgb, 'wb'))
 
 
 
 clf2.fit(X_train, Y_train)
+result = clf2.score(X_test, Y_test)
+print(result)
 filename_svm = '../models/modelSVM_optimitzat.sav'
 pickle.dump(clf2, open(filename_svm, 'wb'))
 
@@ -376,7 +381,7 @@ pickle.dump(clf2, open(filename_svm, 'wb'))
 # PLOT THE CONFUSION MATRIX
 
 probs_hgb = cross_val_predict(clf1, x, y, cv=6, method='predict_proba')
-"""
+
 y_pred1 = cross_val_predict(clf1, x, y, cv=6)
 conf_mat = confusion_matrix(y, y_pred1)
 print(conf_mat)
@@ -395,7 +400,7 @@ sns.heatmap(conf_mat, annot=True, cmap="YlGnBu")
 plt.savefig("../figures/confusion_matrix_svm.png")
 plt.show()
 
-"""
+
 
 
 n_classes=2
